@@ -4,10 +4,33 @@ var path=require("path")
 var app = express()
 
 app.use('/assets',express.static('assets'))
-app.get('/:time', function (req, res) {
-  res.send((+ new Date()).toString())
+
+
+app.get('/:parsed', function (req, res) {
+  const MonthChoice=['January','February','Month','April','May','June','July','August','September','October','November','December']
+  if (isNaN(req.params.parsed)) {
+    const time=new Date(req.params.parsed)
+    if (typeof time=='number') {
+      res.json({
+        unix: time/1000,
+        natural:MonthChoice[time.getMonth()]+' '+time.getDate()+', '+time.getFullYear()
+    })
+    } else {
+      res.json({
+        unix: null,
+        time: null
+      })
+    }
+  } else {
+    const d = new Date(req.params.parsed*1000)
+    res.json({
+      unix: req.params.parsed,
+      natural: MonthChoice[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear()
+    })
+  }
   console.log(req.url)
 })
+
 app.get('/',function(req,res) {
     console.log(req.url)
     res.sendFile(path.join(__dirname+'/index.html'))
