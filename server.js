@@ -1,13 +1,12 @@
 var express=require("express");
-var bodyParser=require("body-parser")
 var path=require("path")
 var app = express()
-
+const MonthChoice=['January','February','Month','April','May','June','July','August','September','October','November','December']
 app.use('/assets',express.static('assets'))
 
 
 app.get('/:parsed', function (req, res) {
-  const MonthChoice=['January','February','Month','April','May','June','July','August','September','October','November','December']
+  
   if (isNaN(req.params.parsed)) {
     const time=new Date(req.params.parsed)
     if (typeof time=='number') {

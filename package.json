@@ -1,8 +1,12 @@
 {
-  "name": "fcc1",
+  "name": "timespampede",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "4.6.1",
+    "npm": "2.15.9"
+  }
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
