@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+body{
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold
+}
+hr {
+	margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #eeeeee;
+    
+}
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
